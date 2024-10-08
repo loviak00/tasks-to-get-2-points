@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number;
+    setlocale(LC_ALL, "Russian");
+    cout << "Введите натуральное двузначное число: ";
+    cin >> number;
+
+    bool hasDoubleDigit = false;
+    int previousDigit = -1;
+
+    while (number > 0) {
+        int currentDigit = number % 10;
+        if (currentDigit == previousDigit) {
+            hasDoubleDigit = true;
+            break;
+        }
+        previousDigit = currentDigit;
+        number /= 10;
+    }
+
+    if (hasDoubleDigit) {
+        cout << "В числе есть две одинаковые цифры стоящие рядом." << endl;
+    }
+    else {
+        cout << "В числе нет двух одинаковых цифр стоящих рядом." << endl;
+    }
+
+    return 0;
+
+}
